@@ -4,9 +4,13 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import { Logo } from "./logo";
-import { NAV_LINKS, RELEASES_URL } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants";
 
-export function Navbar() {
+interface NavbarProps {
+  downloadUrl: string;
+}
+
+export function Navbar({ downloadUrl }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -48,7 +52,7 @@ export function Navbar() {
             </a>
           ))}
           <a
-            href={RELEASES_URL}
+            href={downloadUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="gradient-border flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-text hover:bg-surface/30 transition-colors"

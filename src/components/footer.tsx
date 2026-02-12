@@ -1,5 +1,5 @@
 import { Logo } from "./logo";
-import { REPO_URL, RELEASES_URL, LICENSE_URL, VERSION } from "@/lib/constants";
+import { REPO_URL, RELEASES_URL, LICENSE_URL } from "@/lib/constants";
 
 const FOOTER_LINKS = [
   { label: "GitHub", href: REPO_URL },
@@ -7,7 +7,11 @@ const FOOTER_LINKS = [
   { label: "License", href: LICENSE_URL },
 ];
 
-export function Footer() {
+interface FooterProps {
+  version: string;
+}
+
+export function Footer({ version }: FooterProps) {
   return (
     <footer className="border-t border-surface px-6 py-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 md:flex-row md:justify-between">
@@ -16,7 +20,7 @@ export function Footer() {
           <div>
             <span className="font-semibold text-text">Divergence</span>
             <span className="ml-2 rounded-md border border-surface bg-surface/50 px-2 py-0.5 font-mono text-xs text-subtext">
-              v{VERSION}
+              v{version}
             </span>
           </div>
         </div>

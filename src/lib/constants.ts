@@ -12,7 +12,6 @@ export const RELEASES_URL =
   "https://github.com/marckraw/divergence/releases/latest";
 export const LICENSE_URL =
   "https://github.com/marckraw/divergence/blob/master/LICENSE";
-export const VERSION = "0.9.0";
 
 export const NAV_LINKS = [
   { label: "Features", href: "#features" },
@@ -134,19 +133,23 @@ export const TERMINAL_LINES = [
   { prompt: true, text: "" },
 ] as const;
 
-export const INSTALL_GITHUB = `# Download the latest release
-# Visit the releases page and download the .dmg for your architecture
+export function getInstallGithub(aarch64Url: string | null, x64Url: string | null) {
+  const aarch64 = aarch64Url ?? `${RELEASES_URL}/download/Divergence_aarch64.dmg`;
+  const x64 = x64Url ?? `${RELEASES_URL}/download/Divergence_x64.dmg`;
+
+  return `# Download the latest release
 
 # Apple Silicon (M1/M2/M3/M4)
 curl -L -o Divergence.dmg \\
-  "${RELEASES_URL}/download/Divergence_aarch64.dmg"
+  "${aarch64}"
 
 # Intel Mac
 curl -L -o Divergence.dmg \\
-  "${RELEASES_URL}/download/Divergence_x64.dmg"
+  "${x64}"
 
 # Install
 open Divergence.dmg`;
+}
 
 export const INSTALL_SOURCE = `# Clone the repository
 git clone ${REPO_URL}.git

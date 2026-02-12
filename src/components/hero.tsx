@@ -2,10 +2,15 @@
 
 import { motion } from "framer-motion";
 import { Download, Github } from "lucide-react";
-import { RELEASES_URL, REPO_URL } from "@/lib/constants";
+import { REPO_URL } from "@/lib/constants";
 import { GradientText } from "./ui/gradient-text";
 
-export function Hero() {
+interface HeroProps {
+  version: string;
+  downloadUrl: string;
+}
+
+export function Hero({ version, downloadUrl }: HeroProps) {
   return (
     <section className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-32">
       {/* Background effects */}
@@ -27,7 +32,7 @@ export function Hero() {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-surface bg-mantle px-4 py-1.5 text-sm text-subtext"
           >
             <span className="h-2 w-2 rounded-full bg-green animate-pulse" />
-            v0.9.0 — Now with AI Agent Automation
+            v{version} — Now with AI Agent Automation
           </motion.div>
 
           {/* Heading */}
@@ -53,7 +58,7 @@ export function Hero() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <a
-              href={RELEASES_URL}
+              href={downloadUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue to-lavender px-8 py-3.5 text-sm font-semibold text-base transition-all hover:shadow-lg hover:shadow-blue/20 hover:scale-[1.02] active:scale-[0.98]"

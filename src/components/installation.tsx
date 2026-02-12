@@ -4,15 +4,24 @@ import { useState } from "react";
 import { SectionWrapper } from "./ui/section-wrapper";
 import { CodeBlock } from "./ui/code-block";
 import { GradientText } from "./ui/gradient-text";
-import { INSTALL_GITHUB, INSTALL_SOURCE } from "@/lib/constants";
+import { getInstallGithub, INSTALL_SOURCE } from "@/lib/constants";
 
 const TABS = [
   { id: "releases", label: "GitHub Releases" },
   { id: "source", label: "Build from Source" },
 ] as const;
 
-export function Installation() {
+interface InstallationProps {
+  assets: {
+    aarch64Dmg: string | null;
+    x64Dmg: string | null;
+  };
+}
+
+export function Installation({ assets }: InstallationProps) {
   const [activeTab, setActiveTab] = useState<"releases" | "source">("releases");
+
+  const installGithub = getInstallGithub(assets.aarch64Dmg, assets.x64Dmg);
 
   return (
     <SectionWrapper id="install">
@@ -45,7 +54,7 @@ export function Installation() {
 
         {/* Content */}
         {activeTab === "releases" ? (
-          <CodeBlock code={INSTALL_GITHUB} />
+          <CodeBlock code={installGithub} />
         ) : (
           <CodeBlock code={INSTALL_SOURCE} />
         )}

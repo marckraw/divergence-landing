@@ -3,9 +3,13 @@
 import { motion } from "framer-motion";
 import { Download, Star } from "lucide-react";
 import { GradientText } from "./ui/gradient-text";
-import { RELEASES_URL, REPO_URL } from "@/lib/constants";
+import { REPO_URL } from "@/lib/constants";
 
-export function CtaSection() {
+interface CtaSectionProps {
+  downloadUrl: string;
+}
+
+export function CtaSection({ downloadUrl }: CtaSectionProps) {
   return (
     <section className="px-6 py-24 md:py-32">
       <motion.div
@@ -26,7 +30,7 @@ export function CtaSection() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href={RELEASES_URL}
+            href={downloadUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue to-lavender px-8 py-3.5 text-sm font-semibold text-base transition-all hover:shadow-lg hover:shadow-blue/20 hover:scale-[1.02] active:scale-[0.98]"
