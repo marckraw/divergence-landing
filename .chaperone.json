@@ -1,0 +1,89 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "typescript": {
+      "detected": true,
+      "configPath": "tsconfig.json",
+      "settings": {
+        "strict": true,
+        "target": "ES2017"
+      }
+    },
+    "eslint": {
+      "detected": true,
+      "configPath": "eslint.config.mjs",
+      "configFormat": "flat"
+    },
+    "prettier": {
+      "detected": false
+    },
+    "packageManager": {
+      "name": "npm",
+      "lockfile": "package-lock.json"
+    }
+  },
+  "rules": {
+    "custom": [
+      {
+        "type": "regex",
+        "id": "no-console-in-components",
+        "severity": "error",
+        "files": "src/components/**/*.{ts,tsx}",
+        "pattern": "\\bconsole\\.(log|debug|info)\\b",
+        "message": "No console.log/debug/info in components — remove before shipping"
+      },
+      {
+        "type": "regex",
+        "id": "no-console-in-lib",
+        "severity": "error",
+        "files": "src/lib/**/*.ts",
+        "pattern": "\\bconsole\\.(log|debug|info)\\b",
+        "message": "No console.log/debug/info in lib — remove before shipping"
+      },
+      {
+        "type": "regex",
+        "id": "no-hardcoded-github-urls-in-components",
+        "severity": "warning",
+        "files": "src/components/**/*.{ts,tsx}",
+        "pattern": "https://github\\.com/marckraw/divergence",
+        "message": "Use constants from @/lib/constants instead of hardcoding GitHub URLs"
+      },
+      {
+        "type": "regex",
+        "id": "no-inline-styles",
+        "severity": "warning",
+        "files": "src/components/**/*.tsx",
+        "pattern": "\\bstyle\\s*=\\s*\\{\\{",
+        "message": "Prefer Tailwind classes over inline styles"
+      },
+      {
+        "type": "package-fields",
+        "id": "required-scripts",
+        "severity": "error",
+        "requiredFields": [
+          "scripts.build",
+          "scripts.lint",
+          "scripts.test:pure"
+        ],
+        "fieldPatterns": {
+          "scripts.test:pure": "chaperone\\s+check"
+        },
+        "message": "package.json must have build, lint, and test:pure scripts"
+      }
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "out",
+    "build"
+  ],
+  "integrations": {
+    "respectEslintIgnore": true,
+    "respectPrettierIgnore": false,
+    "useTypescriptPaths": true
+  }
+}

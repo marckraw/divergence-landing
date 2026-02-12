@@ -7,11 +7,8 @@ export function Logo({ className = "w-8 h-8" }: { className?: string }) {
     >
       <defs>
         <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "#89b4fa", stopOpacity: 1 }} />
-          <stop
-            offset="100%"
-            style={{ stopColor: "#cba6f7", stopOpacity: 1 }}
-          />
+          <stop offset="0%" stopColor="#89b4fa" stopOpacity={1} />
+          <stop offset="100%" stopColor="#cba6f7" stopOpacity={1} />
         </linearGradient>
       </defs>
       <rect width="100" height="100" rx="20" fill="#1e1e2e" />
