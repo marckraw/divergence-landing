@@ -55,7 +55,7 @@ export function Navbar({ downloadUrl }: NavbarProps) {
             href={downloadUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="gradient-border flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-text hover:bg-surface/30 transition-colors"
+            className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue to-lavender px-4 py-2 text-sm font-semibold text-base transition-all hover:shadow-lg hover:shadow-blue/20"
           >
             <Download className="w-4 h-4" />
             Download
