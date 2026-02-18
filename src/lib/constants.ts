@@ -3,8 +3,10 @@ import {
   Terminal,
   Sparkles,
   LayoutDashboard,
-  GitPullRequest,
+  Inbox,
   Command,
+  GitMerge,
+  Code,
 } from "lucide-react";
 
 export const REPO_URL = "https://github.com/marckraw/divergence";
@@ -24,37 +26,49 @@ export const FEATURES = [
     icon: GitBranch,
     title: "Divergent Workspaces",
     description:
-      "Create isolated git clones for every branch. Each workspace gets its own terminal, file tree, and environment.",
+      "Create isolated git worktrees for every branch. Each workspace gets its own terminal sessions, file tree, and environment — fully independent.",
   },
   {
     icon: Terminal,
     title: "Embedded Terminals",
     description:
-      "Full PTY-backed terminals with split panes, tabs, and session persistence. No more juggling iTerm windows.",
+      "Full PTY-backed terminals with up to 3 split panes, tabs, and TMUX session discovery. Attach to existing sessions or start fresh.",
   },
   {
     icon: Sparkles,
     title: "AI Agent Automation",
     description:
-      "Run Claude Code, Codex, or any CLI agent in the background. Queue tasks and let AI work across branches.",
+      "Run Claude Code, Codex, or any CLI agent inside isolated workspaces. Queue tasks across branches and let agents work in parallel.",
   },
   {
     icon: LayoutDashboard,
     title: "Task Center",
     description:
-      "Monitor all running agents and automations in real-time. See output, status, and results at a glance.",
+      "Monitor all running agents in real-time. Track output, status, Claude usage limits, and results at a glance.",
   },
   {
-    icon: GitPullRequest,
-    title: "Diff Review",
+    icon: Inbox,
+    title: "GitHub PR Inbox",
     description:
-      "AI-powered code review built in. Review changes across divergences before merging back.",
+      "See all open pull requests for your repos in one place. Review, filter, and jump straight to diffs without leaving the app.",
   },
   {
     icon: Command,
     title: "Quick Switcher",
     description:
-      "Cmd+K to instantly jump between projects, branches, and terminals. Context-switch in milliseconds.",
+      "Cmd+K to jump between projects and branches. Cmd+Shift+O to quick-switch files. Context-switch in milliseconds.",
+  },
+  {
+    icon: GitMerge,
+    title: "Merge Detection",
+    description:
+      "Automatically detects when branches have been merged upstream. Prompts you to clean up stale divergences and stay organized.",
+  },
+  {
+    icon: Code,
+    title: "Built-in Code Viewer",
+    description:
+      "CodeMirror-powered syntax highlighting for browsing files directly inside Divergence. Read code without opening a separate editor.",
   },
 ] as const;
 
@@ -63,29 +77,34 @@ export const STEPS = [
     number: "01",
     title: "Add Your Projects",
     description:
-      "Point Divergence at your local repos. It indexes your branches and sets up the workspace.",
+      "Point Divergence at your local repos. It indexes your branches, discovers TMUX sessions, and sets up the workspace.",
   },
   {
     number: "02",
     title: "Create Divergences",
     description:
-      "Spin up isolated clones for any branch. Each gets its own terminal session and working directory.",
+      "Spin up isolated worktrees for any branch. Each gets its own terminal sessions with up to 3 split panes.",
   },
   {
     number: "03",
     title: "Run Agents & Build",
     description:
-      "Launch AI agents, run builds, and manage tasks. Everything stays organized per branch.",
+      "Launch AI agents, review PRs in the GitHub inbox, and manage tasks. Everything stays organized per branch.",
   },
 ] as const;
 
 export const KEYBOARD_SHORTCUTS = [
   { keys: ["Cmd", "K"], action: "Quick Switcher" },
-  { keys: ["Cmd", "D"], action: "Split Terminal" },
+  { keys: ["Cmd", "Shift", "O"], action: "File Quick Switcher" },
+  { keys: ["Cmd", "T"], action: "New Divergence" },
+  { keys: ["Cmd", "D"], action: "Split Vertical" },
+  { keys: ["Cmd", "Shift", "D"], action: "Split Horizontal" },
   { keys: ["Cmd", "B"], action: "Toggle Sidebar" },
   { keys: ["Cmd", ","], action: "Settings" },
   { keys: ["Cmd", "W"], action: "Close Terminal" },
-  { keys: ["Cmd", "Shift", "B"], action: "Toggle Panel" },
+  { keys: ["Cmd", "["], action: "Previous Tab" },
+  { keys: ["Cmd", "]"], action: "Next Tab" },
+  { keys: ["Cmd", "1-9"], action: "Switch to Tab" },
 ] as const;
 
 export const TECH_STACK = [
@@ -96,38 +115,44 @@ export const TECH_STACK = [
   "Rust",
   "SQLite",
   "xterm.js",
+  "CodeMirror",
+  "Drizzle ORM",
 ] as const;
 
 export const TERMINAL_LINES = [
-  { prompt: true, text: "divergence run claude-code --branch feat/auth" },
-  { prompt: false, text: "Creating divergence for feat/auth..." },
-  { prompt: false, text: "Cloning repository → ~/.divergence/repos/myapp-feat-auth-a7b3c1/" },
-  { prompt: false, text: "Starting Claude Code agent..." },
+  { prompt: true, text: "divergence start --project myapp" },
+  { prompt: false, text: "Scanning branches..." },
+  { prompt: false, text: "Found 4 branches, 2 active divergences" },
+  { prompt: false, text: "Loading TMUX sessions..." },
   { prompt: false, text: "" },
   {
     prompt: false,
-    text: "  ✓ Analyzed 23 files in src/auth/",
+    text: "  \u2713 feat/auth-flow — 3 terminals attached",
     color: "green",
   },
   {
     prompt: false,
-    text: "  ✓ Generated JWT middleware",
+    text: "  \u2713 fix/dashboard-layout — agent running",
     color: "green",
   },
+  { prompt: false, text: "" },
+  { prompt: true, text: "divergence create feat/api-v2 --agent claude" },
+  { prompt: false, text: "Creating divergence for feat/api-v2..." },
   {
     prompt: false,
-    text: "  ✓ Added 12 unit tests",
-    color: "green",
-  },
-  {
-    prompt: false,
-    text: "  ✓ All tests passing",
+    text: "  \u2713 Worktree created, Claude Code agent started",
     color: "green",
   },
   { prompt: false, text: "" },
   {
     prompt: false,
-    text: "Agent completed. 4 files modified, 12 tests added.",
+    text: "  \u26A0 fix/login-redirect has been merged — clean up?",
+    color: "yellow",
+  },
+  { prompt: false, text: "" },
+  {
+    prompt: false,
+    text: "Ready. 3 divergences active, 1 agent running.",
     color: "blue",
   },
   { prompt: true, text: "" },

@@ -31,7 +31,7 @@ export function TerminalDemo() {
             <div className="h-3 w-3 rounded-full bg-yellow/80" />
             <div className="h-3 w-3 rounded-full bg-green/80" />
             <span className="ml-3 text-xs text-subtext font-mono">
-              divergence — feat/auth
+              divergence — workspace
             </span>
           </div>
 
@@ -58,9 +58,11 @@ export function TerminalDemo() {
                         ? "text-text"
                         : "color" in line && line.color === "green"
                           ? "text-green"
-                          : "color" in line && line.color === "blue"
-                            ? "text-blue"
-                            : "text-subtext"
+                          : "color" in line && line.color === "yellow"
+                            ? "text-yellow"
+                            : "color" in line && line.color === "blue"
+                              ? "text-blue"
+                              : "text-subtext"
                     }
                   >
                     {line.text}

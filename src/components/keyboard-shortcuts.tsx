@@ -25,7 +25,7 @@ export function KeyboardShortcuts() {
         </p>
       </div>
 
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
+      <div className="mx-auto grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {KEYBOARD_SHORTCUTS.map((shortcut, i) => (
           <motion.div
             key={shortcut.action}

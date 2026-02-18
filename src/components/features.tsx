@@ -15,11 +15,11 @@ export function Features() {
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-subtext">
           Divergence replaces your scattered terminal setup with one unified workspace.
-          Every branch gets its own isolated environment.
+          Every branch gets its own isolated environment with terminals, agents, and GitHub integration.
         </p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {FEATURES.map((feature, i) => (
           <FeatureCard
             key={feature.title}
