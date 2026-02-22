@@ -14,8 +14,8 @@ export function Features() {
           <GradientText>work in parallel</GradientText>
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-subtext">
-          Divergence replaces your scattered terminal setup with one unified workspace.
-          Every branch gets its own isolated environment with terminals, agents, and GitHub integration.
+          Divergence replaces scattered terminal workflows with one focused desktop.
+          Build in branch-isolated clones with terminals, automations, GitHub updates, and local URL routing.
         </p>
       </div>
 

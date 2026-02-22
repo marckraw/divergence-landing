@@ -12,8 +12,8 @@ export function TerminalDemo() {
           See it in action
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-subtext">
-          AI agents run in isolated workspaces while you keep coding. No
-          context-switching required.
+          Agents run in branch-isolated clones while ports and local URLs are
+          managed automatically.
         </p>
       </div>
 

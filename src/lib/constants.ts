@@ -5,8 +5,8 @@ import {
   LayoutDashboard,
   Inbox,
   Command,
-  GitMerge,
-  Code,
+  Globe,
+  Bug,
 } from "lucide-react";
 
 export const REPO_URL = "https://github.com/marckraw/divergence";
@@ -24,27 +24,27 @@ export const NAV_LINKS = [
 export const FEATURES = [
   {
     icon: GitBranch,
-    title: "Divergent Workspaces",
+    title: "Isolated Divergences",
     description:
-      "Create isolated git worktrees for every branch. Each workspace gets its own terminal sessions, file tree, and environment — fully independent.",
+      "Create branch-isolated git clones without touching your base repo. Use per-project divergences or workspace-level divergences across repos.",
   },
   {
     icon: Terminal,
     title: "Embedded Terminals",
     description:
-      "Full PTY-backed terminals with up to 3 split panes, tabs, and TMUX session discovery. Attach to existing sessions or start fresh.",
+      "Full PTY-backed terminals with tabs, tmux discovery, and up to 3 split panes. Reconnect stalled sessions in one click.",
   },
   {
     icon: Sparkles,
-    title: "AI Agent Automation",
+    title: "Agent Automations",
     description:
-      "Run Claude Code, Codex, or any CLI agent inside isolated workspaces. Queue tasks across branches and let agents work in parallel.",
+      "Run Claude Code or Codex in branch-isolated environments. Kick off manual or scheduled runs without context switching.",
   },
   {
     icon: LayoutDashboard,
-    title: "Task Center",
+    title: "Task Center + Usage Limits",
     description:
-      "Monitor all running agents in real-time. Track output, status, Claude usage limits, and results at a glance.",
+      "Track run status, output tails, retries, and inspect phases in real time. Monitor Claude and Codex usage windows from the same workflow.",
   },
   {
     icon: Inbox,
@@ -59,16 +59,16 @@ export const FEATURES = [
       "Cmd+K to jump between projects and branches. Cmd+Shift+O to quick-switch files. Context-switch in milliseconds.",
   },
   {
-    icon: GitMerge,
-    title: "Merge Detection",
+    icon: Globe,
+    title: "Port Routing + Local URLs",
     description:
-      "Automatically detects when branches have been merged upstream. Prompts you to clean up stale divergences and stay organized.",
+      "Auto-allocate dev ports, detect frameworks, and expose local hostnames like branch.project.divergence.localhost.",
   },
   {
-    icon: Code,
-    title: "Built-in Code Viewer",
+    icon: Bug,
+    title: "Debug Console",
     description:
-      "CodeMirror-powered syntax highlighting for browsing files directly inside Divergence. Read code without opening a separate editor.",
+      "Use in-app diagnostics for terminal and tmux issues with filters, failure-focused views, and quick diagnostic capture.",
   },
 ] as const;
 
@@ -77,33 +77,36 @@ export const STEPS = [
     number: "01",
     title: "Add Your Projects",
     description:
-      "Point Divergence at your local repos. It indexes your branches, discovers TMUX sessions, and sets up the workspace.",
+      "Point Divergence at your local repos. It indexes branches, discovers tmux sessions, and loads project settings.",
   },
   {
     number: "02",
     title: "Create Divergences",
     description:
-      "Spin up isolated worktrees for any branch. Each gets its own terminal sessions with up to 3 split panes.",
+      "Create branch-isolated clones with automatic port allocation and framework-aware environment variables.",
   },
   {
     number: "03",
     title: "Run Agents & Build",
     description:
-      "Launch AI agents, review PRs in the GitHub inbox, and manage tasks. Everything stays organized per branch.",
+      "Run agents, review GitHub updates in the inbox, and track everything in Task Center and the port dashboard.",
   },
 ] as const;
 
 export const KEYBOARD_SHORTCUTS = [
   { keys: ["Cmd", "K"], action: "Quick Switcher" },
   { keys: ["Cmd", "Shift", "O"], action: "File Quick Switcher" },
+  { keys: ["Cmd", "I"], action: "Open Inbox" },
   { keys: ["Cmd", "T"], action: "New Divergence" },
   { keys: ["Cmd", "D"], action: "Split Vertical" },
   { keys: ["Cmd", "Shift", "D"], action: "Split Horizontal" },
+  { keys: ["Cmd", "Shift", "R"], action: "Reconnect Terminal" },
   { keys: ["Cmd", "B"], action: "Toggle Sidebar" },
+  { keys: ["Cmd", "Shift", "B"], action: "Toggle Right Panel" },
   { keys: ["Cmd", ","], action: "Settings" },
-  { keys: ["Cmd", "W"], action: "Close Terminal" },
-  { keys: ["Cmd", "["], action: "Previous Tab" },
-  { keys: ["Cmd", "]"], action: "Next Tab" },
+  { keys: ["Cmd", "W"], action: "Close Active Session" },
+  { keys: ["Cmd", "["], action: "Focus Previous Pane" },
+  { keys: ["Cmd", "]"], action: "Focus Next Pane" },
   { keys: ["Cmd", "1-9"], action: "Switch to Tab" },
 ] as const;
 
@@ -117,6 +120,7 @@ export const TECH_STACK = [
   "xterm.js",
   "CodeMirror",
   "Drizzle ORM",
+  "Caddy",
 ] as const;
 
 export const TERMINAL_LINES = [
@@ -127,32 +131,37 @@ export const TERMINAL_LINES = [
   { prompt: false, text: "" },
   {
     prompt: false,
-    text: "  \u2713 feat/auth-flow — 3 terminals attached",
+    text: "  \u2713 feat/auth-flow - port 3142 (nextjs)",
     color: "green",
   },
   {
     prompt: false,
-    text: "  \u2713 fix/dashboard-layout — agent running",
+    text: "  \u2713 fix/dashboard-layout - agent running",
     color: "green",
+  },
+  {
+    prompt: false,
+    text: "  \u2713 fix-dashboard-layout.myapp.divergence.localhost",
+    color: "blue",
   },
   { prompt: false, text: "" },
   { prompt: true, text: "divergence create feat/api-v2 --agent claude" },
-  { prompt: false, text: "Creating divergence for feat/api-v2..." },
+  { prompt: false, text: "Creating divergence clone for feat/api-v2..." },
   {
     prompt: false,
-    text: "  \u2713 Worktree created, Claude Code agent started",
+    text: "  \u2713 Clone ready, Claude Code agent started, port 3143 assigned",
     color: "green",
   },
   { prompt: false, text: "" },
   {
     prompt: false,
-    text: "  \u26A0 fix/login-redirect has been merged — clean up?",
+    text: "  \u26A0 fix/login-redirect has been merged - clean up?",
     color: "yellow",
   },
   { prompt: false, text: "" },
   {
     prompt: false,
-    text: "Ready. 3 divergences active, 1 agent running.",
+    text: "Ready. 3 divergences active, 1 agent running, 3 URLs routed.",
     color: "blue",
   },
   { prompt: true, text: "" },

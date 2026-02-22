@@ -32,7 +32,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-surface bg-mantle px-4 py-1.5 text-sm text-subtext"
           >
             <span className="h-2 w-2 rounded-full bg-green animate-pulse" />
-            v{version} — Now with GitHub Integration &amp; Split Panes
+            v{version} - Split-pane keyboard focus shortcuts
           </motion.div>
 
           {/* Heading */}
@@ -46,8 +46,8 @@ export function Hero({ version, downloadUrl }: HeroProps) {
           {/* Subtitle */}
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-subtext md:text-xl">
             Stop juggling terminal windows and losing context. Divergence gives
-            you isolated workspaces per branch, embedded terminals, and
-            AI&nbsp;agent orchestration — all in one native desktop app.
+            you branch-isolated divergence clones, embedded terminals, and
+            AI&nbsp;agent orchestration in one native desktop app.
           </p>
 
           {/* CTAs */}

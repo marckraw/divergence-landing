@@ -24,8 +24,8 @@ export function CtaSection({ downloadUrl }: CtaSectionProps) {
           <GradientText>context-switching</GradientText>?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-subtext">
-          Download Divergence and give every branch its own workspace, terminal,
-          and AI agent.
+          Download Divergence and give every branch its own isolated clone,
+          terminal, and agent workflow.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
