@@ -38,7 +38,7 @@ export const FEATURES = [
     icon: Sparkles,
     title: "Agent Automations",
     description:
-      "Run Claude Code or Codex in branch-isolated environments. Kick off manual or scheduled runs without context switching.",
+      "Run Claude Code or Codex in branch-isolated environments. Trigger runs manually, on a schedule, or automatically when a GitHub PR merges — even across repositories.",
   },
   {
     icon: LayoutDashboard,
@@ -68,7 +68,7 @@ export const FEATURES = [
     icon: Bug,
     title: "Debug Console",
     description:
-      "Use in-app diagnostics for terminal and tmux issues with filters, failure-focused views, and quick diagnostic capture.",
+      "In-app diagnostics with filters, failure-focused views, and an event inspection modal. Drill into automation events, errors, and metadata in full detail.",
   },
 ] as const;
 
@@ -89,7 +89,7 @@ export const STEPS = [
     number: "03",
     title: "Run Agents & Build",
     description:
-      "Run agents, review GitHub updates in the inbox, and track everything in Task Center and the port dashboard.",
+      "Run agents manually, on a schedule, or via cross-repo PR merge triggers. Review GitHub updates in the inbox and track everything in Task Center.",
   },
 ] as const;
 
@@ -161,7 +161,18 @@ export const TERMINAL_LINES = [
   { prompt: false, text: "" },
   {
     prompt: false,
-    text: "Ready. 3 divergences active, 1 agent running, 3 URLs routed.",
+    text: "  \u2713 PR #126 merged on marckraw/divergence → triggered automation on divergence-landing",
+    color: "green",
+  },
+  {
+    prompt: false,
+    text: "  Queued cloud events: 1",
+    color: "blue",
+  },
+  { prompt: false, text: "" },
+  {
+    prompt: false,
+    text: "Ready. 3 divergences active, 2 agents running, 3 URLs routed.",
     color: "blue",
   },
   { prompt: true, text: "" },
