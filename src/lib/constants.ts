@@ -7,6 +7,7 @@ import {
   Command,
   Globe,
   Bug,
+  ListOrdered,
 } from "lucide-react";
 
 export const REPO_URL = "https://github.com/marckraw/divergence";
@@ -32,7 +33,7 @@ export const FEATURES = [
     icon: Terminal,
     title: "Embedded Terminals",
     description:
-      "Full PTY-backed terminals with tabs, timeout-guarded tmux discovery, and up to 3 split panes. Resilient under heavy multi-terminal load with request deduplication and automatic stall recovery.",
+      "Full PTY-backed terminals with tabs, timeout-guarded tmux discovery, and up to 3 split panes. Manage and kill tmux sessions from the sidebar Tmux Panel with proper lifecycle teardown. Resilient under heavy multi-terminal load with request deduplication and automatic stall recovery.",
   },
   {
     icon: Sparkles,
@@ -69,6 +70,12 @@ export const FEATURES = [
     title: "Debug Console",
     description:
       "In-app diagnostics with filters, failure-focused views, and an event inspection modal. Drill into automation events, errors, and metadata in full detail.",
+  },
+  {
+    icon: ListOrdered,
+    title: "Prompt Queue",
+    description:
+      "Queue prompts per project or workspace and send them to the active terminal with one click. Persisted in SQLite so your queue survives restarts.",
   },
 ] as const;
 
@@ -172,6 +179,17 @@ export const TERMINAL_LINES = [
   {
     prompt: false,
     text: "  Queued cloud events: 1",
+    color: "blue",
+  },
+  { prompt: false, text: "" },
+  {
+    prompt: false,
+    text: "  \u2713 Prompt queue: 2 items queued for feat/api-v2",
+    color: "green",
+  },
+  {
+    prompt: false,
+    text: "  Sent queued prompt to active terminal session",
     color: "blue",
   },
   { prompt: false, text: "" },
