@@ -33,7 +33,7 @@ export const FEATURES = [
     icon: Terminal,
     title: "Embedded Terminals",
     description:
-      "Full PTY-backed terminals with tabs, timeout-guarded tmux discovery, and up to 3 split panes. Manage and kill tmux sessions from the sidebar Tmux Panel with proper lifecycle teardown. Resilient under heavy multi-terminal load with request deduplication and automatic stall recovery.",
+      "Full PTY-backed terminals with tabs, draggable split-pane resizing, and timeout-guarded tmux discovery. Tabs persist across restarts and highlight when a background command goes idle. Manage sessions from the sidebar Tmux Panel with proper lifecycle teardown.",
   },
   {
     icon: Sparkles,
@@ -45,7 +45,7 @@ export const FEATURES = [
     icon: LayoutDashboard,
     title: "Task Center + Usage Limits",
     description:
-      "Track run status, output tails, retries, and inspect phases in real time. Monitor Claude and Codex usage windows from the same workflow.",
+      "Track run status, output tails, retries, and inspect phases in real time. Queue prompts per project and send them straight to the active terminal. Monitor Claude and Codex usage windows from the same workflow.",
   },
   {
     icon: Inbox,
@@ -63,7 +63,7 @@ export const FEATURES = [
     icon: Globe,
     title: "Port Routing + Local URLs",
     description:
-      "Auto-allocate dev ports, detect frameworks, and expose local hostnames like branch.project.divergence.localhost.",
+      "Auto-allocate dev ports with real availability checks, detect frameworks, and expose local hostnames like branch.project.divergence.localhost. Configure port ranges per workspace.",
   },
   {
     icon: Bug,
@@ -137,7 +137,7 @@ export const TERMINAL_LINES = [
   { prompt: false, text: "Discovering TMUX sessions (timeout-guarded)..." },
   {
     prompt: false,
-    text: "  \u2713 3 sessions resolved in 1.8s",
+    text: "  \u2713 3 sessions restored in 1.8s (tabs persisted)",
     color: "green",
   },
   { prompt: false, text: "" },
