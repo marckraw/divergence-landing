@@ -32,7 +32,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-surface bg-mantle px-4 py-1.5 text-sm text-subtext"
           >
             <span className="h-2 w-2 rounded-full bg-green animate-pulse" />
-            v{version} - Redesigned settings, prompt queue, and streamlined layout
+            v{version} - Automatic editor theming, redesigned settings, and prompt queue
           </motion.div>
 
           {/* Heading */}
