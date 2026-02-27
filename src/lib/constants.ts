@@ -33,7 +33,7 @@ export const FEATURES = [
     icon: Terminal,
     title: "Embedded Terminals",
     description:
-      "Full PTY-backed terminals with tabs, timeout-guarded tmux discovery, and up to 3 split panes. Resilient under heavy multi-terminal load with request deduplication and automatic stall recovery.",
+      "Full PTY-backed terminals with tabs, timeout-guarded tmux discovery, and up to 3 split panes. Manage and kill tmux sessions from the sidebar Tmux Panel with proper lifecycle teardown. Resilient under heavy multi-terminal load with request deduplication and automatic stall recovery.",
   },
   {
     icon: Sparkles,
