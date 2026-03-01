@@ -15,7 +15,7 @@ export function Features() {
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-subtext">
           Divergence replaces scattered terminal workflows with one focused desktop.
-          Build in branch-isolated clones with terminals, automations, GitHub updates, and local URL routing.
+          Build in branch-isolated clones with terminals, automations, Linear tasks, GitHub updates, and local URL routing.
         </p>
       </div>
 

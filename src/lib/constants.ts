@@ -8,6 +8,7 @@ import {
   Globe,
   Bug,
   ListOrdered,
+  ListChecks,
 } from "lucide-react";
 
 export const REPO_URL = "https://github.com/marckraw/divergence";
@@ -76,6 +77,12 @@ export const FEATURES = [
     title: "Prompt Queue",
     description:
       "Queue prompts per project or workspace and send them to the active terminal with one click. Persisted in SQLite so your queue survives restarts.",
+  },
+  {
+    icon: ListChecks,
+    title: "Linear Task Queue",
+    description:
+      "Browse your Linear project issues in a dedicated panel. Filter open tasks, see state and assignee at a glance, and send any issue as a structured prompt straight to the active terminal.",
   },
 ] as const;
 
@@ -190,6 +197,17 @@ export const TERMINAL_LINES = [
   {
     prompt: false,
     text: "  Sent queued prompt to active terminal session",
+    color: "blue",
+  },
+  { prompt: false, text: "" },
+  {
+    prompt: false,
+    text: "  \u2713 Linear: 8 open issues loaded for project DIV",
+    color: "green",
+  },
+  {
+    prompt: false,
+    text: "  Sent DIV-47 to terminal as structured prompt",
     color: "blue",
   },
   { prompt: false, text: "" },
