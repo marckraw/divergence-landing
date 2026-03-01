@@ -32,7 +32,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-surface bg-mantle px-4 py-1.5 text-sm text-subtext"
           >
             <span className="h-2 w-2 rounded-full bg-green animate-pulse" />
-            v{version} — Automatic theming, prompt queue, and resizable split panes
+            v{version} — Linear task queue, prompt queue, and resizable split panes
           </motion.div>
 
           {/* Heading */}
@@ -47,7 +47,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-subtext md:text-xl">
             Stop juggling terminal windows and losing context. Divergence gives
             you branch-isolated clones, resizable split terminals, and
-            AI&nbsp;agent orchestration — with cross-repo automations triggered by PR merges — in one native desktop app.
+            AI&nbsp;agent orchestration — with Linear integration, cross-repo automations, and prompt queues — in one native desktop app.
           </p>
 
           {/* CTAs */}
