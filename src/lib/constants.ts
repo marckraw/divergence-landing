@@ -83,13 +83,7 @@ export const FEATURES = [
     icon: ListChecks,
     title: "Linear Task Queue",
     description:
-      "Browse your Linear project issues in a dedicated panel. Filter by status, search across tasks, and see color-coded state at a glance. Send any issue as a structured prompt straight to the active terminal.",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile Companion",
-    description:
-      "Pair your phone over the local network with automatic mDNS discovery and a 6-digit pairing code. Browse projects, monitor automations, capture terminal output, send commands, and manage the prompt queue — all from your mobile device. Push notifications alert you when automation runs finish.",
+      "Browse your Linear project issues in a dedicated panel. Filter by seven status categories — open, todo, in progress, completed, and more. Search across identifier, title, description, assignee, and state. Color-coded badges give instant visual status. Issues load once per context with manual refresh — no distracting re-fetches from terminal activity. Send any issue as a structured prompt straight to the active terminal.",
   },
   {
     icon: Smartphone,
@@ -217,8 +211,18 @@ export const TERMINAL_LINES = [
   { prompt: false, text: "" },
   {
     prompt: false,
-    text: "  \u2713 Linear: 8 open issues loaded for project DIV",
+    text: "  \u2713 Linear: 12 issues loaded for project DIV",
     color: "green",
+  },
+  {
+    prompt: false,
+    text: "  Filter: In Progress \u2014 3 of 12 issues",
+    color: "blue",
+  },
+  {
+    prompt: false,
+    text: '  Search: "auth" \u2014 2 matching issues',
+    color: "blue",
   },
   {
     prompt: false,
