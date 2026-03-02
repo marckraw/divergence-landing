@@ -83,7 +83,7 @@ export const FEATURES = [
     icon: ListChecks,
     title: "Linear Task Queue",
     description:
-      "Browse your Linear project issues in a dedicated panel. Filter by seven status categories — open, todo, in progress, completed, and more. Search across identifier, title, description, assignee, and state. Color-coded badges give instant visual status. Issues load once per context with manual refresh — no distracting re-fetches from terminal activity. Send any issue as a structured prompt straight to the active terminal.",
+      "Browse your Linear project issues in a dedicated panel. Filter by seven status categories — open, todo, in progress, completed, and more. Search across identifier, title, description, assignee, and state. Change issue states inline from a dropdown without leaving Divergence — workflow states are fetched from your Linear project and styled with color-coded badges. Issues load once per context with manual refresh — no distracting re-fetches from terminal activity. Send any issue as a structured prompt straight to the active terminal.",
   },
   {
     icon: Smartphone,
@@ -233,6 +233,11 @@ export const TERMINAL_LINES = [
     prompt: false,
     text: "  Sent DIV-47 to terminal as structured prompt",
     color: "blue",
+  },
+  {
+    prompt: false,
+    text: "  \u2713 DIV-47 state changed: In Progress \u2192 Done",
+    color: "green",
   },
   { prompt: false, text: "" },
   {
