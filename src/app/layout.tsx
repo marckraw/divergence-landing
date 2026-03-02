@@ -15,11 +15,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Divergence — One Desktop. Every Branch. All Your Agents.",
   description:
-    "A native desktop app for managing multiple projects and branches with embedded terminals, AI agent automation, Linear integration, and cross-repo PR-triggered workflows. Built with Tauri, React, and Rust.",
+    "A native desktop app for managing multiple projects and branches with embedded terminals, AI agent automation, Linear integration, cross-repo PR-triggered workflows, and mobile companion with remote access. Built with Tauri, React, and Rust.",
   openGraph: {
     title: "Divergence — One Desktop. Every Branch. All Your Agents.",
     description:
-      "A native desktop app for managing multiple projects and branches with embedded terminals, AI agent automation, and cross-repo workflows.",
+      "A native desktop app for managing multiple projects and branches with embedded terminals, AI agent automation, cross-repo workflows, and mobile remote access.",
     type: "website",
   },
 };
