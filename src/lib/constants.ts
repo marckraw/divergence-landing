@@ -9,6 +9,7 @@ import {
   Bug,
   ListOrdered,
   ListChecks,
+  Smartphone,
 } from "lucide-react";
 
 export const REPO_URL = "https://github.com/marckraw/divergence";
@@ -82,7 +83,13 @@ export const FEATURES = [
     icon: ListChecks,
     title: "Linear Task Queue",
     description:
-      "Browse your Linear project issues in a dedicated panel. Filter open tasks, see state and assignee at a glance, and send any issue as a structured prompt straight to the active terminal.",
+      "Browse your Linear project issues in a dedicated panel. Filter by status, search across tasks, and see color-coded state at a glance. Send any issue as a structured prompt straight to the active terminal.",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Companion",
+    description:
+      "Pair your phone over the local network with automatic mDNS discovery and a 6-digit pairing code. Browse projects, monitor automations, capture terminal output, send commands, and manage the prompt queue — all from your mobile device. Push notifications alert you when automation runs finish.",
   },
 ] as const;
 
@@ -135,6 +142,8 @@ export const TECH_STACK = [
   "CodeMirror",
   "Drizzle ORM",
   "Caddy",
+  "WebSocket",
+  "mDNS",
 ] as const;
 
 export const TERMINAL_LINES = [
@@ -213,7 +222,18 @@ export const TERMINAL_LINES = [
   { prompt: false, text: "" },
   {
     prompt: false,
-    text: "Ready. 3 divergences active, 2 agents running, 3 URLs routed.",
+    text: "  \u2713 Mobile: device paired via mDNS, WebSocket server on :9347",
+    color: "green",
+  },
+  {
+    prompt: false,
+    text: "  Push notification sent: automation feat/api-v2 finished",
+    color: "blue",
+  },
+  { prompt: false, text: "" },
+  {
+    prompt: false,
+    text: "Ready. 3 divergences active, 2 agents running, 3 URLs routed, 1 mobile device.",
     color: "blue",
   },
   { prompt: true, text: "" },
