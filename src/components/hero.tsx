@@ -32,7 +32,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-surface bg-mantle px-4 py-1.5 text-sm text-subtext"
           >
             <span className="h-2 w-2 rounded-full bg-green animate-pulse" />
-            v{version} — Non-blocking divergence creation, Linear filters, and smart refresh
+            v{version} — Audited data layer, non-blocking creation, and Linear filters
           </motion.div>
 
           {/* Heading */}
@@ -47,7 +47,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-subtext md:text-xl">
             Stop juggling terminal windows and losing context. Divergence gives
             you branch-isolated clones, resizable split terminals, and
-            AI&nbsp;agent orchestration — with Linear integration, cross-repo automations, prompt queues, and a mobile companion for remote access and push notifications — in one native desktop app.
+            AI&nbsp;agent orchestration — with Linear integration, cross-repo automations, prompt queues, a mobile companion for remote access and push notifications, and an audited type-safe data layer — in one native desktop app.
           </p>
 
           {/* CTAs */}
