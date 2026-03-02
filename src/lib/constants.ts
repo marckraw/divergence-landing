@@ -83,7 +83,13 @@ export const FEATURES = [
     icon: ListChecks,
     title: "Linear Task Queue",
     description:
-      "Browse your Linear project issues in a dedicated panel. Filter open tasks, see state and assignee at a glance, and send any issue as a structured prompt straight to the active terminal.",
+      "Browse your Linear project issues in a dedicated panel. Filter by status, search across tasks, and see color-coded state at a glance. Send any issue as a structured prompt straight to the active terminal.",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Companion",
+    description:
+      "Pair your phone over the local network with automatic mDNS discovery and a 6-digit pairing code. Browse projects, monitor automations, capture terminal output, send commands, and manage the prompt queue — all from your mobile device. Push notifications alert you when automation runs finish.",
   },
   {
     icon: Smartphone,
