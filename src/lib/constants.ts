@@ -35,7 +35,7 @@ export const FEATURES = [
     icon: Terminal,
     title: "Embedded Terminals",
     description:
-      "Full PTY-backed terminals with tabs, draggable split-pane resizing, and fast tmux attach with timeout-guarded discovery. Tabs persist across restarts and highlight when a background command goes idle. Manage sessions from the sidebar Tmux Panel with proper lifecycle teardown.",
+      "Full PTY-backed terminals with tabs, draggable split-pane resizing, and fast tmux attach with timeout-guarded discovery. Send prompts and Linear issues directly to the focused pane — routing stays correct even after closing and re-adding splits. Tabs persist across restarts and highlight when a background command goes idle. Manage sessions from the sidebar Tmux Panel with proper lifecycle teardown.",
   },
   {
     icon: Sparkles,
@@ -53,7 +53,7 @@ export const FEATURES = [
     icon: GitPullRequest,
     title: "GitHub PR Hub",
     description:
-      "Review, merge, and talk to your pull requests without leaving the app. The built-in chat sidebar lets you ask Claude or Codex about code changes, risks, and intent with full PR-aware context — including metadata, descriptions, and patches. Send with Cmd+Enter.",
+      "Review, merge, and talk to your pull requests without leaving the app. Merge conflict detection surfaces a red badge on any PR with conflicts and disables the merge button with a clear explanation. The built-in chat sidebar lets you ask Claude or Codex about code changes, risks, and intent with full PR-aware context — including metadata, descriptions, and patches. Send with Cmd+Enter.",
   },
   {
     icon: Command,
@@ -224,6 +224,11 @@ export const TERMINAL_LINES = [
     prompt: false,
     text: "  #142 checks passed — squash-merged via PR Hub",
     color: "blue",
+  },
+  {
+    prompt: false,
+    text: "  \u26A0 #139 has merge conflicts — merge blocked until resolved",
+    color: "yellow",
   },
   { prompt: false, text: "" },
   {
