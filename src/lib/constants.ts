@@ -3,8 +3,7 @@ import {
   Terminal,
   Sparkles,
   LayoutDashboard,
-  Inbox,
-  FileCode,
+  GitPullRequest,
   Command,
   Globe,
   Bug,
@@ -52,10 +51,10 @@ export const FEATURES = [
       "Track run status, output tails, retries, and inspect phases in real time. Queue prompts per project and send them straight to the active terminal. Monitor Claude and Codex usage windows from the same workflow.",
   },
   {
-    icon: Inbox,
-    title: "GitHub PR Inbox",
+    icon: GitPullRequest,
+    title: "GitHub PR Hub",
     description:
-      "See all open pull requests for your repos in one place. Review, filter, and jump straight to diffs without leaving the app.",
+      "A centralized board for every open pull request across your projects. Filter by repo, search by title or author, and drill into a full detail view with unified syntax-highlighted diffs and CI status badges. Merge PRs in-app with squash or merge-commit — complete with SHA safety checks — so you never need to switch to the browser.",
   },
   {
     icon: FileCode,
@@ -118,7 +117,7 @@ export const STEPS = [
     number: "03",
     title: "Run Agents & Build",
     description:
-      "Run agents manually, on a schedule, or via cross-repo PR merge triggers. Review GitHub updates in the inbox and track everything in Task Center.",
+      "Run agents manually, on a schedule, or via cross-repo PR merge triggers. Review and merge PRs from the PR Hub, then track everything in Task Center.",
   },
 ] as const;
 
@@ -208,6 +207,17 @@ export const TERMINAL_LINES = [
   {
     prompt: false,
     text: "  Queued cloud events: 1",
+    color: "blue",
+  },
+  { prompt: false, text: "" },
+  {
+    prompt: false,
+    text: "  \u2713 PR Hub: 6 open PRs across 3 repos",
+    color: "green",
+  },
+  {
+    prompt: false,
+    text: "  #142 checks passed — squash-merged via PR Hub",
     color: "blue",
   },
   { prompt: false, text: "" },
