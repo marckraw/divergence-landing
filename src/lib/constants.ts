@@ -54,13 +54,7 @@ export const FEATURES = [
     icon: GitPullRequest,
     title: "GitHub PR Hub",
     description:
-      "A centralized board for every open pull request across your projects. Filter by repo, search by title or author, and drill into a full detail view with unified syntax-highlighted diffs and CI status badges. Merge PRs in-app with squash or merge-commit — complete with SHA safety checks — so you never need to switch to the browser.",
-  },
-  {
-    icon: FileCode,
-    title: "Quick Edit",
-    description:
-      "View and edit files without leaving the app. A CodeMirror-powered editor with syntax highlighting, import-path autocompletion, and an integrated diff viewer shows changes against the working tree or base branch. ARIA-accessible tabs with persistent selection, auto-focus on open, and locale-independent binary detection keep the experience fast and inclusive. Add inline review comments to specific diff lines and save edits in place.",
+      "Review, merge, and talk to your pull requests without leaving the app. The built-in chat sidebar lets you ask Claude or Codex about code changes, risks, and intent with full PR-aware context — including metadata, descriptions, and patches. Send with Cmd+Enter.",
   },
   {
     icon: Command,
@@ -117,7 +111,7 @@ export const STEPS = [
     number: "03",
     title: "Run Agents & Build",
     description:
-      "Run agents manually, on a schedule, or via cross-repo PR merge triggers. Review and merge PRs from the PR Hub, then track everything in Task Center.",
+      "Run agents manually, on a schedule, or via cross-repo PR merge triggers. Chat with your PRs using Claude or Codex, review and merge from the PR Hub, and track everything in Task Center.",
   },
 ] as const;
 
@@ -132,6 +126,7 @@ export const KEYBOARD_SHORTCUTS = [
   { keys: ["Cmd", "B"], action: "Toggle Sidebar" },
   { keys: ["Cmd", "Shift", "B"], action: "Toggle Right Panel" },
   { keys: ["Cmd", ","], action: "Settings" },
+  { keys: ["Cmd", "Enter"], action: "Send in PR Chat" },
   { keys: ["Cmd", "W"], action: "Close Active Session" },
   { keys: ["Cmd", "["], action: "Focus Previous Pane" },
   { keys: ["Cmd", "]"], action: "Focus Next Pane" },
@@ -197,6 +192,17 @@ export const TERMINAL_LINES = [
     prompt: false,
     text: "  \u26A0 fix/login-redirect has been merged - clean up?",
     color: "yellow",
+  },
+  { prompt: false, text: "" },
+  {
+    prompt: false,
+    text: "  \u2713 PR #146 chat: asked Claude — \"What are the risky changes?\"",
+    color: "green",
+  },
+  {
+    prompt: false,
+    text: "  Response received (1.4s) — 3 risks identified across 4 files",
+    color: "blue",
   },
   { prompt: false, text: "" },
   {
