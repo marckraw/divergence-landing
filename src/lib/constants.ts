@@ -36,7 +36,7 @@ export const FEATURES = [
     icon: Terminal,
     title: "Embedded Terminals",
     description:
-      "Full PTY-backed terminals with tabs, draggable split-pane resizing, and timeout-guarded tmux discovery. Tabs persist across restarts and highlight when a background command goes idle. Manage sessions from the sidebar Tmux Panel with proper lifecycle teardown.",
+      "Full PTY-backed terminals with tabs, draggable split-pane resizing, and smart tmux binary resolution with multi-path fallbacks. Optimized startup skips redundant shell init and guards global settings so re-attaches are near-instant. Tabs persist across restarts and highlight when a background command goes idle. Manage sessions from the sidebar Tmux Panel with proper lifecycle teardown.",
   },
   {
     icon: Sparkles,
@@ -84,19 +84,19 @@ export const FEATURES = [
     icon: ListOrdered,
     title: "Prompt Queue",
     description:
-      "Queue prompts per project or workspace and send them to the active terminal with one click. Persisted in SQLite so your queue survives restarts.",
+      "Queue prompts per project or workspace and send them to the active terminal with one click. Persisted via Drizzle ORM in SQLite with type-safe queries — your queue survives restarts.",
   },
   {
     icon: ListChecks,
     title: "Linear Task Queue",
     description:
-      "Browse your Linear project issues in a dedicated panel. Filter by seven status categories — open, todo, in progress, completed, and more. Search across identifier, title, description, assignee, and state. Color-coded badges give instant visual status. Issues load once per context with manual refresh — no distracting re-fetches from terminal activity. Send any issue as a structured prompt straight to the active terminal.",
+      "Browse your Linear project issues in a dedicated panel. Filter by seven status categories — open, todo, in progress, completed, and more. Search across identifier, title, description, assignee, and state. Color-coded badges update in real time as issue states change, with deterministic sorting so the list stays stable. Issues load once per context with manual refresh — no distracting re-fetches from terminal activity. Send any issue as a structured prompt straight to the active terminal.",
   },
   {
     icon: Smartphone,
     title: "Mobile Companion",
     description:
-      "Pair your phone over the local network with automatic mDNS discovery and a 6-digit pairing code. Browse projects, monitor automations, capture terminal output, send commands, and manage the prompt queue — all from your mobile device. Push notifications alert you when automation runs finish.",
+      "Pair your phone over the local network with automatic mDNS discovery and a 6-digit pairing code. Sessions use parameterized queries and audited storage. Browse projects, monitor automations, capture terminal output, send commands, and manage the prompt queue — all from your mobile device. Push notifications alert you when automation runs finish.",
   },
 ] as const;
 
@@ -157,10 +157,10 @@ export const TERMINAL_LINES = [
   { prompt: true, text: "divergence start --project myapp" },
   { prompt: false, text: "Scanning branches..." },
   { prompt: false, text: "Found 4 branches, 2 active divergences" },
-  { prompt: false, text: "Discovering TMUX sessions (timeout-guarded)..." },
+  { prompt: false, text: "Discovering tmux sessions (smart binary resolve)..." },
   {
     prompt: false,
-    text: "  \u2713 3 sessions restored in 1.8s (tabs persisted)",
+    text: "  \u2713 3 sessions attached in 0.4s (cached init, tabs persisted)",
     color: "green",
   },
   { prompt: false, text: "" },
@@ -241,6 +241,11 @@ export const TERMINAL_LINES = [
     text: "  Sent DIV-47 to terminal as structured prompt",
     color: "blue",
   },
+  {
+    prompt: false,
+    text: "  \u2713 DIV-47 state changed: In Progress \u2192 Done",
+    color: "green",
+  },
   { prompt: false, text: "" },
   {
     prompt: false,
@@ -251,6 +256,12 @@ export const TERMINAL_LINES = [
     prompt: false,
     text: "  Push notification sent: automation feat/api-v2 finished",
     color: "blue",
+  },
+  { prompt: false, text: "" },
+  {
+    prompt: false,
+    text: "  \u2713 Data layer: Drizzle ORM, all queries type-safe, raw SQL linted",
+    color: "green",
   },
   { prompt: false, text: "" },
   {
