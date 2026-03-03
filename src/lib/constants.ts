@@ -77,7 +77,7 @@ export const FEATURES = [
     icon: ListOrdered,
     title: "Prompt Queue",
     description:
-      "Queue prompts per project or workspace and send them to the active terminal with one click. Persisted in SQLite so your queue survives restarts.",
+      "Queue prompts per project or workspace and send them to the active terminal with one click. Persisted via Drizzle ORM in SQLite with type-safe queries — your queue survives restarts.",
   },
   {
     icon: ListChecks,
@@ -89,7 +89,7 @@ export const FEATURES = [
     icon: Smartphone,
     title: "Mobile Companion",
     description:
-      "Pair your phone over the local network with automatic mDNS discovery and a 6-digit pairing code. Browse projects, monitor automations, capture terminal output, send commands, and manage the prompt queue — all from your mobile device. Push notifications alert you when automation runs finish.",
+      "Pair your phone over the local network with automatic mDNS discovery and a 6-digit pairing code. Sessions use parameterized queries and audited storage. Browse projects, monitor automations, capture terminal output, send commands, and manage the prompt queue — all from your mobile device. Push notifications alert you when automation runs finish.",
   },
 ] as const;
 
@@ -249,6 +249,12 @@ export const TERMINAL_LINES = [
     prompt: false,
     text: "  Push notification sent: automation feat/api-v2 finished",
     color: "blue",
+  },
+  { prompt: false, text: "" },
+  {
+    prompt: false,
+    text: "  \u2713 Data layer: Drizzle ORM, all queries type-safe, raw SQL linted",
+    color: "green",
   },
   { prompt: false, text: "" },
   {
