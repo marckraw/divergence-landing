@@ -4,6 +4,7 @@ import {
   Sparkles,
   LayoutDashboard,
   Inbox,
+  FileCode,
   Command,
   Globe,
   Bug,
@@ -36,7 +37,7 @@ export const FEATURES = [
     icon: Terminal,
     title: "Embedded Terminals",
     description:
-      "Full PTY-backed terminals with tabs, draggable split-pane resizing, and smart tmux binary resolution with multi-path fallbacks. Optimized startup skips redundant shell init and guards global settings so re-attaches are near-instant. Tabs persist across restarts and highlight when a background command goes idle. Manage sessions from the sidebar Tmux Panel with proper lifecycle teardown.",
+      "Full PTY-backed terminals with tabs, draggable split-pane resizing, and fast tmux attach with timeout-guarded discovery. Tabs persist across restarts and highlight when a background command goes idle. Manage sessions from the sidebar Tmux Panel with proper lifecycle teardown.",
   },
   {
     icon: Sparkles,
@@ -60,7 +61,7 @@ export const FEATURES = [
     icon: FileCode,
     title: "Quick Edit",
     description:
-      "View and edit files without leaving the app. A CodeMirror-powered editor with syntax highlighting, import-path autocompletion, and an integrated diff viewer shows changes against the working tree or base branch. Add inline review comments to specific diff lines and save edits in place.",
+      "View and edit files without leaving the app. A CodeMirror-powered editor with syntax highlighting, import-path autocompletion, and an integrated diff viewer shows changes against the working tree or base branch. ARIA-accessible tabs with persistent selection, auto-focus on open, and locale-independent binary detection keep the experience fast and inclusive. Add inline review comments to specific diff lines and save edits in place.",
   },
   {
     icon: Command,
@@ -90,7 +91,7 @@ export const FEATURES = [
     icon: ListChecks,
     title: "Linear Task Queue",
     description:
-      "Browse your Linear project issues in a dedicated panel. Filter by seven status categories — open, todo, in progress, completed, and more. Search across identifier, title, description, assignee, and state. Color-coded badges update in real time as issue states change, with deterministic sorting so the list stays stable. Issues load once per context with manual refresh — no distracting re-fetches from terminal activity. Send any issue as a structured prompt straight to the active terminal.",
+      "Browse your Linear project issues in a dedicated panel. Filter by seven status categories — open, todo, in progress, completed, and more. Search across identifier, title, description, assignee, and state. Update issue states directly without leaving Divergence. Color-coded badges give instant visual status with deterministic sort order. Issues load once per context with manual refresh — no distracting re-fetches from terminal activity. Send any issue as a structured prompt straight to the active terminal.",
   },
   {
     icon: Smartphone,
@@ -243,7 +244,7 @@ export const TERMINAL_LINES = [
   },
   {
     prompt: false,
-    text: "  \u2713 DIV-47 state changed: In Progress \u2192 Done",
+    text: "  \u2713 DIV-47 \u2192 In Progress (state updated)",
     color: "green",
   },
   { prompt: false, text: "" },
