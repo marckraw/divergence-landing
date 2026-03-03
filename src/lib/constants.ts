@@ -10,7 +10,6 @@ import {
   ListOrdered,
   ListChecks,
   Smartphone,
-  FileCode,
 } from "lucide-react";
 
 export const REPO_URL = "https://github.com/marckraw/divergence";
