@@ -32,7 +32,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-surface bg-mantle px-4 py-1.5 text-sm text-subtext"
           >
             <span className="h-2 w-2 rounded-full bg-green animate-pulse" />
-            v{version} — Non-blocking divergence creation, Linear filters, and smart refresh
+            v{version} — Quick Edit refinements, stable diff viewer, and cross-platform git fixes
           </motion.div>
 
           {/* Heading */}

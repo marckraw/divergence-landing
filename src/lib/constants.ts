@@ -10,6 +10,7 @@ import {
   ListOrdered,
   ListChecks,
   Smartphone,
+  FileCode,
 } from "lucide-react";
 
 export const REPO_URL = "https://github.com/marckraw/divergence";
@@ -54,6 +55,12 @@ export const FEATURES = [
     title: "GitHub PR Inbox",
     description:
       "See all open pull requests for your repos in one place. Review, filter, and jump straight to diffs without leaving the app.",
+  },
+  {
+    icon: FileCode,
+    title: "Quick Edit",
+    description:
+      "View and edit files without leaving the app. A CodeMirror-powered editor with syntax highlighting, import-path autocompletion, and an integrated diff viewer shows changes against the working tree or base branch. Add inline review comments to specific diff lines and save edits in place.",
   },
   {
     icon: Command,
