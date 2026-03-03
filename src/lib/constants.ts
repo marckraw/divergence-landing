@@ -35,7 +35,7 @@ export const FEATURES = [
     icon: Terminal,
     title: "Embedded Terminals",
     description:
-      "Full PTY-backed terminals with tabs, draggable split-pane resizing, and timeout-guarded tmux discovery. Tabs persist across restarts and highlight when a background command goes idle. Manage sessions from the sidebar Tmux Panel with proper lifecycle teardown.",
+      "Full PTY-backed terminals with tabs, draggable split-pane resizing, and smart tmux binary resolution with multi-path fallbacks. Optimized startup skips redundant shell init and guards global settings so re-attaches are near-instant. Tabs persist across restarts and highlight when a background command goes idle. Manage sessions from the sidebar Tmux Panel with proper lifecycle teardown.",
   },
   {
     icon: Sparkles,
@@ -83,7 +83,7 @@ export const FEATURES = [
     icon: ListChecks,
     title: "Linear Task Queue",
     description:
-      "Browse your Linear project issues in a dedicated panel. Filter by seven status categories — open, todo, in progress, completed, and more. Search across identifier, title, description, assignee, and state. Change issue states inline from a dropdown without leaving Divergence — workflow states are fetched from your Linear project and styled with color-coded badges. Issues load once per context with manual refresh — no distracting re-fetches from terminal activity. Send any issue as a structured prompt straight to the active terminal.",
+      "Browse your Linear project issues in a dedicated panel. Filter by seven status categories — open, todo, in progress, completed, and more. Search across identifier, title, description, assignee, and state. Color-coded badges update in real time as issue states change, with deterministic sorting so the list stays stable. Issues load once per context with manual refresh — no distracting re-fetches from terminal activity. Send any issue as a structured prompt straight to the active terminal.",
   },
   {
     icon: Smartphone,
@@ -150,10 +150,10 @@ export const TERMINAL_LINES = [
   { prompt: true, text: "divergence start --project myapp" },
   { prompt: false, text: "Scanning branches..." },
   { prompt: false, text: "Found 4 branches, 2 active divergences" },
-  { prompt: false, text: "Discovering TMUX sessions (timeout-guarded)..." },
+  { prompt: false, text: "Discovering tmux sessions (smart binary resolve)..." },
   {
     prompt: false,
-    text: "  \u2713 3 sessions restored in 1.8s (tabs persisted)",
+    text: "  \u2713 3 sessions attached in 0.4s (cached init, tabs persisted)",
     color: "green",
   },
   { prompt: false, text: "" },
