@@ -3,7 +3,7 @@ import {
   Terminal,
   Sparkles,
   LayoutDashboard,
-  Inbox,
+  GitPullRequest,
   Command,
   Globe,
   Bug,
@@ -50,10 +50,10 @@ export const FEATURES = [
       "Track run status, output tails, retries, and inspect phases in real time. Queue prompts per project and send them straight to the active terminal. Monitor Claude and Codex usage windows from the same workflow.",
   },
   {
-    icon: Inbox,
-    title: "GitHub PR Inbox",
+    icon: GitPullRequest,
+    title: "GitHub PR Hub",
     description:
-      "See all open pull requests for your repos in one place. Review, filter, and jump straight to diffs without leaving the app.",
+      "Review, merge, and talk to your pull requests without leaving the app. The built-in chat sidebar lets you ask Claude or Codex about code changes, risks, and intent with full PR-aware context — including metadata, descriptions, and patches. Send with Cmd+Enter.",
   },
   {
     icon: Command,
@@ -110,7 +110,7 @@ export const STEPS = [
     number: "03",
     title: "Run Agents & Build",
     description:
-      "Run agents manually, on a schedule, or via cross-repo PR merge triggers. Review GitHub updates in the inbox and track everything in Task Center.",
+      "Run agents manually, on a schedule, or via cross-repo PR merge triggers. Chat with your PRs using Claude or Codex, review and merge from the PR Hub, and track everything in Task Center.",
   },
 ] as const;
 
@@ -125,6 +125,7 @@ export const KEYBOARD_SHORTCUTS = [
   { keys: ["Cmd", "B"], action: "Toggle Sidebar" },
   { keys: ["Cmd", "Shift", "B"], action: "Toggle Right Panel" },
   { keys: ["Cmd", ","], action: "Settings" },
+  { keys: ["Cmd", "Enter"], action: "Send in PR Chat" },
   { keys: ["Cmd", "W"], action: "Close Active Session" },
   { keys: ["Cmd", "["], action: "Focus Previous Pane" },
   { keys: ["Cmd", "]"], action: "Focus Next Pane" },
@@ -190,6 +191,17 @@ export const TERMINAL_LINES = [
     prompt: false,
     text: "  \u26A0 fix/login-redirect has been merged - clean up?",
     color: "yellow",
+  },
+  { prompt: false, text: "" },
+  {
+    prompt: false,
+    text: "  \u2713 PR #146 chat: asked Claude — \"What are the risky changes?\"",
+    color: "green",
+  },
+  {
+    prompt: false,
+    text: "  Response received (1.4s) — 3 risks identified across 4 files",
+    color: "blue",
   },
   { prompt: false, text: "" },
   {
