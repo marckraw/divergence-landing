@@ -10,6 +10,7 @@ import {
   ListOrdered,
   ListChecks,
   Smartphone,
+  FileCode,
 } from "lucide-react";
 
 export const REPO_URL = "https://github.com/marckraw/divergence";
@@ -35,7 +36,7 @@ export const FEATURES = [
     icon: Terminal,
     title: "Embedded Terminals",
     description:
-      "Full PTY-backed terminals with tabs, draggable split-pane resizing, and timeout-guarded tmux discovery. Tabs persist across restarts and highlight when a background command goes idle. Manage sessions from the sidebar Tmux Panel with proper lifecycle teardown.",
+      "Full PTY-backed terminals with tabs, draggable split-pane resizing, and fast tmux attach with timeout-guarded discovery. Tabs persist across restarts and highlight when a background command goes idle. Manage sessions from the sidebar Tmux Panel with proper lifecycle teardown.",
   },
   {
     icon: Sparkles,
@@ -54,6 +55,12 @@ export const FEATURES = [
     title: "GitHub PR Hub",
     description:
       "A centralized board for every open pull request across your projects. Filter by repo, search by title or author, and drill into a full detail view with unified syntax-highlighted diffs and CI status badges. Merge PRs in-app with squash or merge-commit — complete with SHA safety checks — so you never need to switch to the browser.",
+  },
+  {
+    icon: FileCode,
+    title: "Quick Edit",
+    description:
+      "View and edit files without leaving the app. A CodeMirror-powered editor with syntax highlighting, import-path autocompletion, and an integrated diff viewer shows changes against the working tree or base branch. ARIA-accessible tabs with persistent selection, auto-focus on open, and locale-independent binary detection keep the experience fast and inclusive. Add inline review comments to specific diff lines and save edits in place.",
   },
   {
     icon: Command,
@@ -77,19 +84,19 @@ export const FEATURES = [
     icon: ListOrdered,
     title: "Prompt Queue",
     description:
-      "Queue prompts per project or workspace and send them to the active terminal with one click. Persisted in SQLite so your queue survives restarts.",
+      "Queue prompts per project or workspace and send them to the active terminal with one click. Persisted via Drizzle ORM in SQLite with type-safe queries — your queue survives restarts.",
   },
   {
     icon: ListChecks,
     title: "Linear Task Queue",
     description:
-      "Browse your Linear project issues in a dedicated panel. Filter by seven status categories — open, todo, in progress, completed, and more. Search across identifier, title, description, assignee, and state. Color-coded badges give instant visual status. Issues load once per context with manual refresh — no distracting re-fetches from terminal activity. Send any issue as a structured prompt straight to the active terminal.",
+      "Browse your Linear project issues in a dedicated panel. Filter by seven status categories — open, todo, in progress, completed, and more. Search across identifier, title, description, assignee, and state. Update issue states directly without leaving Divergence. Color-coded badges give instant visual status with deterministic sort order. Issues load once per context with manual refresh — no distracting re-fetches from terminal activity. Send any issue as a structured prompt straight to the active terminal.",
   },
   {
     icon: Smartphone,
     title: "Mobile Companion",
     description:
-      "Pair your phone over the local network with automatic mDNS discovery and a 6-digit pairing code. Browse projects, monitor automations, capture terminal output, send commands, and manage the prompt queue — all from your mobile device. Push notifications alert you when automation runs finish.",
+      "Pair your phone over the local network with automatic mDNS discovery and a 6-digit pairing code. Sessions use parameterized queries and audited storage. Browse projects, monitor automations, capture terminal output, send commands, and manage the prompt queue — all from your mobile device. Push notifications alert you when automation runs finish.",
   },
 ] as const;
 
@@ -150,10 +157,10 @@ export const TERMINAL_LINES = [
   { prompt: true, text: "divergence start --project myapp" },
   { prompt: false, text: "Scanning branches..." },
   { prompt: false, text: "Found 4 branches, 2 active divergences" },
-  { prompt: false, text: "Discovering TMUX sessions (timeout-guarded)..." },
+  { prompt: false, text: "Discovering tmux sessions (smart binary resolve)..." },
   {
     prompt: false,
-    text: "  \u2713 3 sessions restored in 1.8s (tabs persisted)",
+    text: "  \u2713 3 sessions attached in 0.4s (cached init, tabs persisted)",
     color: "green",
   },
   { prompt: false, text: "" },
@@ -245,6 +252,11 @@ export const TERMINAL_LINES = [
     text: "  Sent DIV-47 to terminal as structured prompt",
     color: "blue",
   },
+  {
+    prompt: false,
+    text: "  \u2713 DIV-47 \u2192 In Progress (state updated)",
+    color: "green",
+  },
   { prompt: false, text: "" },
   {
     prompt: false,
@@ -255,6 +267,12 @@ export const TERMINAL_LINES = [
     prompt: false,
     text: "  Push notification sent: automation feat/api-v2 finished",
     color: "blue",
+  },
+  { prompt: false, text: "" },
+  {
+    prompt: false,
+    text: "  \u2713 Data layer: Drizzle ORM, all queries type-safe, raw SQL linted",
+    color: "green",
   },
   { prompt: false, text: "" },
   {
