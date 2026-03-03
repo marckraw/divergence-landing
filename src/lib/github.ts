@@ -24,8 +24,8 @@ interface GitHubRelease {
 }
 
 const FALLBACK: ReleaseInfo = {
-  version: "0.26.2",
-  tagName: "v0.26.2",
+  version: "0.26.3",
+  tagName: "v0.26.3",
   releasesUrl: RELEASES_URL,
   publishedAt: new Date().toISOString(),
   assets: {

@@ -286,7 +286,7 @@ export const TERMINAL_LINES = [
   },
   {
     prompt: false,
-    text: "  \u2713 Architecture: 17 modular hooks, 398 tests passing, 0 lint errors",
+    text: "  \u2713 Architecture: 40 modular hooks, 398 tests passing, 0 lint errors",
     color: "green",
   },
   { prompt: false, text: "" },
