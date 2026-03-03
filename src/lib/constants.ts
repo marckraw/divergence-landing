@@ -284,6 +284,11 @@ export const TERMINAL_LINES = [
     text: "  \u2713 Data layer: Drizzle ORM, all queries type-safe, raw SQL linted",
     color: "green",
   },
+  {
+    prompt: false,
+    text: "  \u2713 Architecture: 17 modular hooks, 398 tests passing, 0 lint errors",
+    color: "green",
+  },
   { prompt: false, text: "" },
   {
     prompt: false,
