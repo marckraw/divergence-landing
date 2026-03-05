@@ -32,7 +32,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-surface bg-mantle px-4 py-1.5 text-sm text-subtext"
           >
             <span className="h-2 w-2 rounded-full bg-green animate-pulse" />
-            v{version} — 40 modular hooks, clean container architecture, and PR chat sidebar
+            v{version} — 4-pane split terminals, 40 modular hooks, and PR chat sidebar
           </motion.div>
 
           {/* Heading */}
@@ -46,7 +46,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
           {/* Subtitle */}
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-subtext md:text-xl">
             Stop juggling terminal windows and losing context. Divergence gives
-            you branch-isolated clones, resizable split terminals, and
+            you branch-isolated clones, resizable split terminals with up to 4 panes, and
             AI&nbsp;agent orchestration — with a PR chat sidebar, Linear integration, cross-repo automations, prompt queues, and a mobile companion for remote access and push notifications — in one native desktop app.
           </p>
 
