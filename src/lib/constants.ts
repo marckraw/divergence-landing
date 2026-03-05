@@ -47,7 +47,7 @@ export const FEATURES = [
     icon: LayoutDashboard,
     title: "Task Center + Usage Limits",
     description:
-      "Track run status, output tails, retries, and inspect phases in real time. Queue prompts per project and send them straight to the active terminal. Monitor Claude and Codex usage windows from the same workflow.",
+      "Track run status, output tails, retries, and inspect phases in real time. Queue prompts per project and send them straight to the active terminal. Monitor Codex usage windows from the same workflow.",
   },
   {
     icon: GitPullRequest,
