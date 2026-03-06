@@ -35,7 +35,7 @@ export const FEATURES = [
     icon: Terminal,
     title: "Embedded Terminals",
     description:
-      "Full PTY-backed terminals with tabs, draggable split-pane resizing up to 4 panes, and fast tmux attach with timeout-guarded discovery. Send prompts and Linear issues directly to the focused pane — routing stays correct even after closing and re-adding splits. Tabs persist across restarts and highlight when a background command goes idle. Manage sessions from the sidebar Tmux Panel with proper lifecycle teardown.",
+      "Full PTY-backed terminals with tabs, draggable split-pane resizing up to 4 panes, and fast tmux attach with timeout-guarded discovery. Send prompts and Linear issues directly to the focused pane — routing stays correct even after closing and re-adding splits. Tabs persist across restarts and highlight when a background command goes idle. Kill sessions reliably from the sidebar Tmux Panel — actions target the correct tmux server, the panel updates instantly, and cleanly exited sessions stay closed instead of auto-reconnecting.",
   },
   {
     icon: Sparkles,
@@ -155,6 +155,11 @@ export const TERMINAL_LINES = [
   {
     prompt: false,
     text: "  \u2713 4 sessions attached in 0.4s (cached init, tabs persisted)",
+    color: "green",
+  },
+  {
+    prompt: false,
+    text: "  \u2713 Killed session fix/old-branch — panel updated, no reconnect",
     color: "green",
   },
   { prompt: false, text: "" },
