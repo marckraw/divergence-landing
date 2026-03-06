@@ -32,7 +32,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-surface bg-mantle px-4 py-1.5 text-sm text-subtext"
           >
             <span className="h-2 w-2 rounded-full bg-green animate-pulse" />
-            v{version} — streamlined usage tracking, Codex-only usage limits, and improved terminal sessions
+            v{version} — reliable tmux session kills, no unwanted reconnections, and streamlined usage tracking
           </motion.div>
 
           {/* Heading */}
