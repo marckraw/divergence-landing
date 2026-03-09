@@ -42,7 +42,7 @@ export const FEATURES = [
     icon: Cpu,
     title: "Multi-Provider Agent Runtime",
     description:
-      "A unified provider registry runs Claude, Codex, Cursor, and Gemini side by side — each through its own adapter that normalizes output into a canonical event contract. Sessions persist across restarts and render as structured chat and work-log UI, not raw terminal output. Provider auth stays inside each official CLI process; Divergence never touches credentials.",
+      "A unified provider registry runs Claude, Codex, Cursor, and Gemini side by side — each through its own adapter that normalizes output into a canonical event contract. Sessions persist across restarts and render as structured chat and work-log UI, not raw terminal output. Switch to Plan Mode per-turn so agents reason before acting. Attach images via file picker, clipboard paste, or drag-and-drop — supported by Claude, Codex, and Gemini. Provider auth stays inside each official CLI process; Divergence never touches credentials.",
   },
   {
     icon: Sparkles,
@@ -132,6 +132,7 @@ export const KEYBOARD_SHORTCUTS = [
   { keys: ["Cmd", "B"], action: "Toggle Sidebar" },
   { keys: ["Cmd", "Shift", "B"], action: "Toggle Right Panel" },
   { keys: ["Cmd", ","], action: "Settings" },
+  { keys: ["Shift", "Tab"], action: "Toggle Plan Mode in Composer" },
   { keys: ["Cmd", "Enter"], action: "Send in PR Chat" },
   { keys: ["Cmd", "W"], action: "Close Active Session" },
   { keys: ["Cmd", "["], action: "Focus Previous Pane" },
@@ -186,7 +187,7 @@ export const TERMINAL_LINES = [
     color: "blue",
   },
   { prompt: false, text: "" },
-  { prompt: true, text: "divergence create feat/api-v2 --agent claude" },
+  { prompt: true, text: "divergence create feat/api-v2 --agent claude --mode plan" },
   { prompt: false, text: "Queued divergence creation for feat/api-v2..." },
   {
     prompt: false,
@@ -207,6 +208,16 @@ export const TERMINAL_LINES = [
   {
     prompt: false,
     text: "  \u2713 Agent session feat/api-v2 persisted — session.started event received",
+    color: "green",
+  },
+  {
+    prompt: false,
+    text: "  \u2713 Plan mode active — agent will reason before acting (Shift+Tab to toggle)",
+    color: "green",
+  },
+  {
+    prompt: false,
+    text: "  \u2713 Image attached: screenshot.png (drag-drop) — staged for claude",
     color: "green",
   },
   {
