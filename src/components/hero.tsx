@@ -32,7 +32,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-surface bg-mantle px-4 py-1.5 text-sm text-subtext"
           >
             <span className="h-2 w-2 rounded-full bg-green animate-pulse" />
-            v{version} — plan mode + image attachments across Claude, Codex, Cursor, and Gemini
+            v{version} — auto session titles, manual rename, and real-time agent telemetry
           </motion.div>
 
           {/* Heading */}
@@ -47,7 +47,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-subtext md:text-xl">
             Stop juggling terminal windows and losing context. Divergence gives
             you branch-isolated clones, resizable split terminals with up to 4 panes, and
-            a multi-provider agent runtime for Claude, Codex, Cursor, and Gemini — with plan mode, image attachments, persisted agent sessions, structured session UI, PR chat, Linear integration, cross-repo automations, and a mobile companion — in one native desktop app.
+            a multi-provider agent runtime for Claude, Codex, Cursor, and Gemini — with auto-titled sessions, manual rename, real-time telemetry, plan mode, image attachments, structured session UI, PR chat, Linear integration, cross-repo automations, and a mobile companion — in one native desktop app.
           </p>
 
           {/* CTAs */}
