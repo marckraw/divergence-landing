@@ -2,6 +2,7 @@ import {
   GitBranch,
   Terminal,
   Sparkles,
+  Cpu,
   LayoutDashboard,
   GitPullRequest,
   Command,
@@ -38,28 +39,34 @@ export const FEATURES = [
       "Full PTY-backed terminals with tabs, draggable split-pane resizing up to 4 panes, and fast tmux attach with timeout-guarded discovery. Send prompts and Linear issues directly to the focused pane — routing stays correct even after closing and re-adding splits. Tabs persist across restarts and highlight when a background command goes idle. Kill sessions reliably from the sidebar Tmux Panel — actions target the correct tmux server, the panel updates instantly, and cleanly exited sessions stay closed instead of auto-reconnecting.",
   },
   {
+    icon: Cpu,
+    title: "Multi-Provider Agent Runtime",
+    description:
+      "A unified provider registry runs Claude, Codex, Cursor, and Gemini side by side — each through its own adapter that normalizes output into a canonical event contract. Sessions persist across restarts and render as structured chat and work-log UI, not raw terminal output. Provider auth stays inside each official CLI process; Divergence never touches credentials.",
+  },
+  {
     icon: Sparkles,
     title: "Agent Automations",
     description:
-      "Run Claude Code or Codex in branch-isolated environments. Trigger runs manually, on a schedule, or automatically when a GitHub PR merges — even across repositories.",
+      "Trigger any registered provider — Claude, Codex, Cursor, or Gemini — manually, on a schedule, or automatically when a GitHub PR merges, even across repositories. Each automation run links back to a persisted agent session so Task Center and restart reconciliation can reattach to the same structured session.",
   },
   {
     icon: LayoutDashboard,
-    title: "Task Center + Usage Limits",
+    title: "Task Center",
     description:
-      "Track run status, output tails, retries, and inspect phases in real time. Queue prompts per project and send them straight to the active terminal. Monitor Codex usage windows from the same workflow.",
+      "Track run status, output tails, retries, and inspect phases in real time. Agent session timelines surface structured turns, tool activity, and pending approval requests directly in the UI. Queue prompts per project and send them straight to the active terminal or agent session.",
   },
   {
     icon: GitPullRequest,
     title: "GitHub PR Hub",
     description:
-      "Review, merge, and talk to your pull requests without leaving the app. Merge conflict detection surfaces a red badge on any PR with conflicts and disables the merge button with a clear explanation. The built-in chat sidebar lets you ask Claude or Codex about code changes, risks, and intent with full PR-aware context — including metadata, descriptions, and patches. Send with Cmd+Enter.",
+      "Review, merge, and talk to your pull requests without leaving the app. Merge conflict detection surfaces a red badge on any PR with conflicts and disables the merge button with a clear explanation. The built-in chat sidebar lets you ask Claude, Codex, Cursor, or Gemini about code changes, risks, and intent with full PR-aware context — including metadata, descriptions, and patches. Send with Cmd+Enter.",
   },
   {
     icon: Command,
     title: "Quick Switcher",
     description:
-      "Cmd+K to jump between projects and branches. Cmd+Shift+O to quick-switch files. Context-switch in milliseconds.",
+      "Cmd+K to jump between projects, branches, and agent sessions. Cmd+Shift+O to quick-switch files. Context-switch in milliseconds.",
   },
   {
     icon: Globe,
@@ -71,7 +78,7 @@ export const FEATURES = [
     icon: Bug,
     title: "Debug Console",
     description:
-      "In-app diagnostics with filters, failure-focused views, and an event inspection modal. Drill into automation events, errors, and metadata in full detail.",
+      "In-app diagnostics with filters, failure-focused views, and an event inspection modal. Drill into agent session events, automation run phases, errors, and metadata in full detail.",
   },
   {
     icon: ListOrdered,
@@ -110,7 +117,7 @@ export const STEPS = [
     number: "03",
     title: "Run Agents & Build",
     description:
-      "Run agents manually, on a schedule, or via cross-repo PR merge triggers. Chat with your PRs using Claude or Codex, review and merge from the PR Hub, and track everything in Task Center.",
+      "Run agents manually, on a schedule, or via cross-repo PR merge triggers. Choose from Claude, Codex, Cursor, or Gemini — sessions persist across restarts with structured timeline UI. Chat with your PRs, review and merge from the PR Hub, and track everything in Task Center.",
   },
 ] as const;
 
@@ -188,8 +195,24 @@ export const TERMINAL_LINES = [
   },
   {
     prompt: false,
-    text: "  \u2713 Clone ready, Claude Code agent started, port 3143 assigned",
+    text: "  \u2713 Clone ready, Claude agent started, port 3143 assigned",
     color: "green",
+  },
+  { prompt: false, text: "" },
+  {
+    prompt: false,
+    text: "  \u2713 Agent runtime: providers ready — claude codex cursor gemini",
+    color: "green",
+  },
+  {
+    prompt: false,
+    text: "  \u2713 Agent session feat/api-v2 persisted — session.started event received",
+    color: "green",
+  },
+  {
+    prompt: false,
+    text: "  turn.started \u2192 content.delta \u00d7 14 \u2192 activity.started \u2192 activity.completed \u2192 turn.completed",
+    color: "blue",
   },
   { prompt: false, text: "" },
   {
@@ -297,7 +320,7 @@ export const TERMINAL_LINES = [
   { prompt: false, text: "" },
   {
     prompt: false,
-    text: "Ready. 3 divergences active, 2 agents running, 3 URLs routed, 1 mobile device.",
+    text: "Ready. 3 divergences active, 2 agent sessions persisted, 4 providers registered, 3 URLs routed, 1 mobile device.",
     color: "blue",
   },
   { prompt: true, text: "" },
