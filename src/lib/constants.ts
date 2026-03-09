@@ -42,7 +42,7 @@ export const FEATURES = [
     icon: Cpu,
     title: "Multi-Provider Agent Runtime",
     description:
-      "A unified provider registry runs Claude, Codex, Cursor, and Gemini side by side — each through its own adapter that normalizes output into a canonical event contract. Sessions persist across restarts and render as structured chat and work-log UI, not raw terminal output. Switch to Plan Mode per-turn so agents reason before acting. Attach images via file picker, clipboard paste, or drag-and-drop — supported by Claude, Codex, and Gemini. Provider auth stays inside each official CLI process; Divergence never touches credentials.",
+      "A unified provider registry runs Claude, Codex, Cursor, and Gemini side by side — each through its own adapter that normalizes output into a canonical event contract. Sessions persist across restarts and render as structured chat and work-log UI, not raw terminal output. Session titles are generated automatically from the first message and can be renamed manually at any time. Switch to Plan Mode per-turn so agents reason before acting. Attach images via file picker, clipboard paste, or drag-and-drop — supported by Claude, Codex, and Gemini. Real-time session telemetry tracks the current execution phase, elapsed turn time, and last event — with a slow-turn warning when the agent goes quiet for 10+ seconds. An expandable runtime debug panel surfaces all captured events with phase labels, relative timing, and details. Provider auth stays inside each official CLI process; Divergence never touches credentials.",
   },
   {
     icon: Sparkles,
