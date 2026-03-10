@@ -32,7 +32,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-surface bg-mantle px-4 py-1.5 text-sm text-subtext"
           >
             <span className="h-2 w-2 rounded-full bg-green animate-pulse" />
-            v{version} — provider-gated attachments, PDF support for Gemini, and faster virtualized conversations
+            v{version} — real-time Codex context window monitoring with color-coded indicators
           </motion.div>
 
           {/* Heading */}
@@ -47,7 +47,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-subtext md:text-xl">
             Stop juggling terminal windows and losing context. Divergence gives
             you branch-isolated clones, resizable split terminals with up to 4 panes, and
-            a multi-provider agent runtime for Claude, Codex, Cursor, and Gemini — with provider-gated attachments (images for Claude/Codex, images + PDFs for Gemini), multiple Claude model tiers, virtualized conversation timelines, auto-titled sessions, real-time telemetry, plan mode, structured session UI, PR chat, Linear integration, cross-repo automations, and a mobile companion — in one native desktop app.
+            a multi-provider agent runtime for Claude, Codex, Cursor, and Gemini — with real-time Codex context window monitoring (color-coded green/yellow/red indicators in the session header), provider-gated attachments (images for Claude/Codex, images + PDFs for Gemini), multiple Claude model tiers, virtualized conversation timelines, auto-titled sessions, real-time telemetry, plan mode, structured session UI, PR chat, Linear integration, cross-repo automations, and a mobile companion — in one native desktop app.
           </p>
 
           {/* CTAs */}
