@@ -32,7 +32,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-surface bg-mantle px-4 py-1.5 text-sm text-subtext"
           >
             <span className="h-2 w-2 rounded-full bg-green animate-pulse" />
-            v{version} — lazy-loaded agent sessions for fast startup and on-demand transcript hydration
+            v{version} — one-click PR review divergences, session attention indicators, and custom model support
           </motion.div>
 
           {/* Heading */}
@@ -47,7 +47,7 @@ export function Hero({ version, downloadUrl }: HeroProps) {
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-subtext md:text-xl">
             Stop juggling terminal windows and losing context. Divergence gives
             you branch-isolated clones, resizable split terminals with up to 4 panes, and
-            a multi-provider agent runtime for Claude, Codex, Cursor, and Gemini — with lazy-loaded sessions for instant startup, on-demand transcript hydration, real-time Codex context window monitoring, provider-gated attachments, multiple Claude model tiers, virtualized conversation timelines, auto-titled sessions, real-time telemetry, plan mode, structured session UI, PR chat, Linear integration, cross-repo automations, and a mobile companion — in one native desktop app.
+            a multi-provider agent runtime for Claude, Codex, Cursor, and Gemini — with one-click PR review divergences that spin up an isolated clone and auto-launch a review agent, session attention indicators, custom model support per provider, lazy-loaded sessions for instant startup, on-demand transcript hydration, real-time Codex context window monitoring, provider-gated attachments, multiple Claude model tiers, virtualized conversation timelines, auto-titled sessions, real-time telemetry, plan mode, structured session UI, PR chat, Linear integration, cross-repo automations, and a mobile companion — in one native desktop app.
           </p>
 
           {/* CTAs */}
