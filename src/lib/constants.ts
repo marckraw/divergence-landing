@@ -177,6 +177,9 @@ export const INSTALL_SOURCE = `# Clone the repository
 git clone ${REPO_URL}.git
 cd divergence
 
+# Match the repo-pinned Node.js version (requires Node 24.x)
+fnm use
+
 # Install dependencies
 npm install
 
