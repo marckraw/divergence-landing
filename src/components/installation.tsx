@@ -60,7 +60,7 @@ export function Installation({ assets }: InstallationProps) {
         )}
 
         <p className="mt-4 text-center text-xs text-subtext/60">
-          Requires macOS 12+ · Xcode Command Line Tools for building from source
+          Requires macOS 12+ · Node.js 24.14.0 · Xcode Command Line Tools for building from source
         </p>
       </div>
     </SectionWrapper>
