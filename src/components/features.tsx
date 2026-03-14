@@ -4,6 +4,9 @@ import { SectionWrapper } from "./ui/section-wrapper";
 import { FeatureCard } from "./ui/feature-card";
 import { GradientText } from "./ui/gradient-text";
 import { FEATURES } from "@/lib/constants";
+import { ArrowRight } from "lucide-react";
+
+const landingFeatures = FEATURES.filter((f) => f.landing);
 
 export function Features() {
   return (
@@ -14,21 +17,32 @@ export function Features() {
           <GradientText>work in parallel</GradientText>
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-subtext">
-          Divergence replaces scattered terminal workflows with one focused desktop.
-          Build in branch-isolated clones with terminals, automations, Linear tasks, PR review and chat, and local URL routing.
+          Divergence replaces scattered terminal workflows with one focused
+          desktop. Build in branch-isolated clones with terminals, automations,
+          PR review and chat, and local URL routing.
         </p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {FEATURES.map((feature, i) => (
+        {landingFeatures.map((feature, i) => (
           <FeatureCard
             key={feature.title}
             icon={feature.icon}
             title={feature.title}
-            description={feature.description}
+            description={feature.shortDescription}
             index={i}
           />
         ))}
+      </div>
+
+      <div className="mt-12 text-center">
+        <a
+          href="/features"
+          className="inline-flex items-center gap-2 text-sm font-medium text-blue hover:text-lavender transition-colors"
+        >
+          See all features
+          <ArrowRight className="w-4 h-4" />
+        </a>
       </div>
     </SectionWrapper>
   );

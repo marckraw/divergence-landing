@@ -20,7 +20,7 @@ export const LICENSE_URL =
   "https://github.com/marckraw/divergence/blob/master/LICENSE";
 
 export const NAV_LINKS = [
-  { label: "Features", href: "#features" },
+  { label: "Features", href: "/features" },
   { label: "Install", href: "#install" },
   { label: "GitHub", href: REPO_URL, external: true },
 ] as const;
@@ -29,74 +29,110 @@ export const FEATURES = [
   {
     icon: GitBranch,
     title: "Isolated Divergences",
+    shortDescription:
+      "Branch-isolated git clones that queue instantly. Keep working while they set up in the background.",
     description:
       "Create branch-isolated git clones without touching your base repo. Creation is queued instantly so the UI never blocks — keep working while clones prepare in the background. Use per-project divergences or workspace-level divergences across repos.",
+    landing: true,
   },
   {
     icon: Terminal,
     title: "Embedded Terminals",
+    shortDescription:
+      "Full PTY terminals with tabs, split panes, and tmux integration. Send prompts directly to the focused pane.",
     description:
       "Full PTY-backed terminals with tabs, draggable split-pane resizing up to 4 panes, and fast tmux attach with timeout-guarded discovery. Send prompts and Linear issues directly to the focused pane — routing stays correct even after closing and re-adding splits. Split pane identities are stable across hydration cycles: tmux session targeting stays accurate even when agent sessions are lazily loaded, so the correct pane is always targeted regardless of app restarts. Tabs persist across restarts and highlight when a background command goes idle. Kill sessions reliably from the sidebar Tmux Panel — actions target the correct tmux server, the panel updates instantly, and cleanly exited sessions stay closed instead of auto-reconnecting.",
+    landing: true,
   },
   {
     icon: Cpu,
     title: "Multi-Provider Agent Runtime",
+    shortDescription:
+      "Run Claude, Codex, Cursor, and Gemini side by side with persistent sessions, structured timelines, and plan mode.",
     description:
       "A unified provider registry runs Claude, Codex, Cursor, and Gemini side by side — each through its own adapter that normalizes output into a canonical event contract. Sessions load lazily on startup: only lightweight metadata is fetched initially for fast app initialization, with full transcripts hydrated on demand the moment you open a session. Sessions that were open when you last closed the app are pre-hydrated automatically. Sessions persist across restarts and render as structured chat and work-log UI with a virtualized timeline for smooth performance across long sessions. Adjacent tool activities are automatically grouped and summarized in the timeline — consecutive reads, edits, or commands collapse into groups like 'Read 3 files' or 'Ran 5 commands', keeping long sessions scannable without losing any detail. Expand any group to inspect individual steps with kind badge, subject, and status. Session titles are generated automatically from the first message and can be renamed manually at any time. Switch to Plan Mode per-turn so agents reason before acting. Session attention indicators give instant visual feedback — pulsing badges surface approval-required, awaiting-input, and working states; static badges surface error, plan-ready, and completed states — so you always know what every session needs at a glance. Attention states are preserved faithfully during lazy hydration: sessions that were in a plan-ready state when you closed the app re-surface with the correct badge immediately on startup, before the full transcript loads — so approval-required moments are never silently dropped. Codex sessions display a real-time context window indicator in the session header — a live progress bar showing how much of the context has been used, color-coded green (under 75%), yellow (75–90%), and red (90%+) so you always know when you're approaching limits. Attachments are provider-gated: Claude and Codex accept images; Gemini accepts images and PDFs; Cursor has no attachment support. Attach files via file picker, clipboard paste, or drag-and-drop. Choose from a range of Claude model tiers — default (tier-based), Haiku, or Opus — with pinned version options for reproducibility. Add custom model slugs per provider in Settings to use any model alongside the built-in options; custom and detected models are merged and deduplicated automatically. Composer drafts are debounced and persisted automatically. Sticky follow-scroll keeps the conversation anchored to new messages without jarring jumps. Real-time session telemetry tracks the current execution phase, elapsed turn time, and last event — with a slow-turn warning when the agent goes quiet for 10+ seconds. An expandable runtime debug panel surfaces all captured events with phase labels, relative timing, and details. Provider auth stays inside each official CLI process; Divergence never touches credentials.",
+    landing: true,
   },
   {
     icon: Sparkles,
     title: "Agent Automations",
+    shortDescription:
+      "Trigger agents manually, on a schedule, or when a GitHub PR merges — even across repositories.",
     description:
       "Trigger any registered provider — Claude, Codex, Cursor, or Gemini — manually, on a schedule, or automatically when a GitHub PR merges, even across repositories. Each automation run links back to a persisted agent session so Task Center and restart reconciliation can reattach to the same structured session.",
+    landing: true,
   },
   {
     icon: LayoutDashboard,
     title: "Task Center",
+    shortDescription:
+      "Track run status, inspect phases, and manage queued prompts in real time. Full history persists across restarts.",
     description:
       "Track run status, output tails, retries, and inspect phases in real time. Completed automation runs are restored from the database on startup — your full history is visible across app reloads without re-running anything. Agent session timelines surface structured turns, tool activity, and pending approval requests directly in the UI. Consecutive tool activities are intelligently grouped by type — reads, edits, commands, searches — and shown as compact summaries ('Read 3 files', 'Ran 5 commands') that expand to reveal individual steps with kind badges and subjects. Queue prompts per project and send them straight to the active terminal or agent session.",
+    landing: false,
   },
   {
     icon: GitPullRequest,
     title: "GitHub PR Hub",
+    shortDescription:
+      "Review, merge, and chat about PRs without leaving the app. One-click review divergences with auto-started agent reviews.",
     description:
       "Review, merge, and talk to your pull requests without leaving the app. Open any PR in a dedicated Review Divergence — a one-click flow that creates an isolated git clone of the PR branch, launches an agent session pre-loaded with PR context, and auto-starts a structured review prompt covering correctness, potential regressions, edge cases, and test coverage — so the agent gets to work immediately. When a PR has merge conflicts, a Resolve Conflicts action creates a dedicated conflict-resolution divergence — an isolated clone with the base branch already merged in so conflicts are materialized locally — and seeds an agent session pre-loaded with conflict-resolution context so the agent can get to work immediately. Merge conflict detection surfaces a red badge on any PR with conflicts and disables the merge button with a clear explanation. The built-in chat sidebar lets you ask Claude, Codex, Cursor, or Gemini about code changes, risks, and intent with full PR-aware context — including metadata, descriptions, and patches. A structured diff tree groups changed files by directory with per-file and per-directory addition and deletion counts. Send with Cmd+Enter.",
+    landing: true,
   },
   {
     icon: Command,
     title: "Quick Switcher",
+    shortDescription:
+      "Cmd+K to jump between projects, branches, and sessions. Context-switch in milliseconds.",
     description:
       "Cmd+K to jump between projects, branches, and agent sessions. Cmd+Shift+O to quick-switch files. Context-switch in milliseconds.",
+    landing: false,
   },
   {
     icon: Globe,
     title: "Port Routing + Local URLs",
+    shortDescription:
+      "Auto-allocated dev ports with framework detection and local hostname routing.",
     description:
       "Auto-allocate dev ports with real availability checks, detect frameworks, and expose local hostnames like branch.project.divergence.localhost. Configure port ranges per workspace.",
+    landing: false,
   },
   {
     icon: Bug,
     title: "Debug Console",
+    shortDescription:
+      "In-app diagnostics with filters, failure-focused views, and event inspection.",
     description:
       "In-app diagnostics with filters, failure-focused views, and an event inspection modal. Drill into agent session events, automation run phases, errors, and metadata in full detail.",
+    landing: false,
   },
   {
     icon: ListOrdered,
     title: "Prompt Queue",
+    shortDescription:
+      "Queue prompts per project and send them to the active terminal with one click.",
     description:
       "Queue prompts per project or workspace and send them to the active terminal with one click. Persisted via Drizzle ORM in SQLite with type-safe queries — your queue survives restarts.",
+    landing: false,
   },
   {
     icon: ListChecks,
     title: "Linear Task Queue",
+    shortDescription:
+      "Browse, filter, search, and update Linear issues without leaving Divergence.",
     description:
       "Browse your Linear project issues in a dedicated panel. Filter by seven status categories — open, todo, in progress, completed, and more. Search across identifier, title, description, assignee, and state. Update issue states directly without leaving Divergence. Color-coded badges give instant visual status with deterministic sort order. Issues load once per context with manual refresh — no distracting re-fetches from terminal activity. Send any issue as a structured prompt straight to the active terminal.",
+    landing: false,
   },
   {
     icon: Smartphone,
     title: "Mobile Companion",
+    shortDescription:
+      "Pair your phone over the local network. Browse projects, monitor automations, and send commands on the go.",
     description:
       "Pair your phone over the local network with automatic mDNS discovery and a 6-digit pairing code. Sessions use parameterized queries and audited storage. Browse projects, monitor automations, capture terminal output, send commands, and manage the prompt queue — all from your mobile device. Push notifications alert you when automation runs finish.",
+    landing: true,
   },
 ] as const;
 
